@@ -3,11 +3,12 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const passport = require("passport");
 const users = require("./routes/api/users");
+
 const db = require('./db')
 const articleRouter = require('./routes/article-router')
 
 const app = express()
-const apiPort = 3000
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
@@ -25,4 +26,4 @@ app.get('/', (req, res) => {
 app.use('/api', articleRouter)
 app.use("/api/users", users);
 
-app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
+app.listen(port, () => console.log(`Server running on port ${port}`))
