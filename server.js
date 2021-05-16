@@ -33,4 +33,4 @@ app.get("*", (req, res) => {
 app.use('/api', articleRouter)
 app.use("/api/users", users);
 
-app.listen(port, () => console.log(`Server running on port ${port}`))
+app.listen(process.env.PORT || 5000, () => console.log(`Server running on port ${port}`))
